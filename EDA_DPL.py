@@ -11,8 +11,8 @@ df = pd.read_csv("EDA_DPL_DATASET.csv")
 st.title('Correlation Analysis of Crimes Against Women')
 
 # Dropdowns for selecting crime types
-crime_type1 = st.selectbox('Select Crime Type 1:', df['Crime_Type'].unique())
-crime_type2 = st.selectbox('Select Crime Type 2:', df['Crime_Type'].unique())
+crime_type1 = st.selectbox('Select Crime Type 1:', df.columns.unique())
+crime_type2 = st.selectbox('Select Crime Type 2:', df.columns.unique())
 
 # Scatter plot for correlation analysis
 fig_correlation = px.scatter(df, x=crime_type1, y=crime_type2, title=f'Correlation Analysis: {crime_type1} vs {crime_type2}')
