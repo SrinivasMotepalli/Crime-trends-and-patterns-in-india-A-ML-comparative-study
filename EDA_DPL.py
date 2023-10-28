@@ -14,6 +14,9 @@ st.title('Correlation Analysis of Crimes Against Women')
 crime_type1 = st.selectbox('Select Crime Type 1:', df.columns.unique())
 crime_type2 = st.selectbox('Select Crime Type 2:', df.columns.unique())
 
-# Scatter plot for correlation analysis
-fig_correlation = px.scatter(df, x=crime_type1, y=crime_type2, title=f'Correlation Analysis: {crime_type1} vs {crime_type2}')
-st.plotly_chart(fig_correlation)
+# Calculate correlation matrix
+correlation_matrix = df[[crime_type1, crime_type2]].corr()
+
+# Heatmap for correlation analysis
+fig_heatmap = sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+st.pyplot(fig_heatmap.figure)
