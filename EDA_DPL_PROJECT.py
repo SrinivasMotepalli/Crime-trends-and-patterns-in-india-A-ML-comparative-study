@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv("EDA_DPL_DATASET.csv")
+df = pd.DataFrame(pd.read_csv("EDA_DPL_DATASET.csv"))
 
 # Streamlit App
 st.title('Data Visualization App For Crimes committed Against Women')
