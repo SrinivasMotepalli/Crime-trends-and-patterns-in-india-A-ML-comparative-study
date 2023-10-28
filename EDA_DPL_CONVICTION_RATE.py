@@ -15,7 +15,7 @@ crime_type = st.selectbox('Select Crime Type:', df[crime_type_column].unique())
 filtered_df = df[df[crime_type_column] == crime_type]
 
 # Calculate conviction rate
-conviction_rate = (filtered_df['Convicted'].sum() / filtered_df['Arrested'].sum()) * 100
+conviction_rate = max(min((filtered_df['Convicted'].sum() / filtered_df['Arrested'].sum()) * 100, 100), 0)
 
 # Display Conviction Rate as percentage
 st.write(f'Conviction Rate for {crime_type}: {conviction_rate:.2f}%')
