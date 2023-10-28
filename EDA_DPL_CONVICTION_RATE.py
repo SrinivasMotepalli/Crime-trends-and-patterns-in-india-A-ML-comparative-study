@@ -9,7 +9,7 @@ df = pd.read_csv("EDA_DPL_DATASET.csv")
 st.title('Conviction Rates for Crimes Against Women')
 
 # Dropdown for selecting crime type
-crime_type = st.selectbox('Select Crime Type:', df['Crime_Type'].unique())
+crime_type = st.selectbox('Select Crime Type:', df.columns.unique())
 
 # Group by crime type and calculate average conviction rate
 conviction_rates = df.groupby('Crime_Type')[['Convicted', 'Arrested']].mean().reset_index()
