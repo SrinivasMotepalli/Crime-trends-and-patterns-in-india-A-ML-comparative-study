@@ -5,7 +5,7 @@ import plotly.express as px
 df = pd.DataFrame(pd.read_csv("EDA_DPL_DATASET.csv"))
 
 # Streamlit App
-st.title('Data Visualization App')
+st.title('Data Visualization App For Crimes committed Against Women')
 
 # Dropdown for selecting x-axis column
 x_column = st.selectbox('Select X-axis Column:', df.columns)
