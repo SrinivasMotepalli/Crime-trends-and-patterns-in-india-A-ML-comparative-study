@@ -14,7 +14,7 @@ x_column = st.selectbox('Select X-axis Column:', df.columns)
 y_column = st.selectbox('Select Y-axis Column:', df.columns)
 
 # Dropdown for selecting plot type
-plot_type = st.selectbox('Select Plot Type:', ['Line', 'Bar', 'Histogram', 'Scatter', 'Area', 'Box', 'Violin'])
+plot_type = st.selectbox('Select Plot Type:', [ 'Bar', 'Histogram', 'Scatter', 'Area'])
 
 # Dropdown for selecting state
 states = ['None'] + sorted(df['Area_Name'].str.strip().unique(), key=str.lower)
