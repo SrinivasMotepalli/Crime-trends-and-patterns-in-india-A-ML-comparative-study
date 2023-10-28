@@ -8,10 +8,12 @@ df = pd.read_csv("EDA_DPL_DATASET.csv")
 st.title('Data Visualization App For Crimes committed Against Women')
 
 # Dropdown for selecting x-axis column
-x_column = st.selectbox('Select X-axis Column:', df.columns)
+x_columns = ['None'] + list(df.columns)
+x_column = st.selectbox('Select X-axis Column:', x_columns)
 
 # Dropdown for selecting y-axis column
-y_column = st.selectbox('Select Y-axis Column:', df.columns)
+y_columns = ['None'] + list(df.columns)
+y_column = st.selectbox('Select Y-axis Column:', y_columns)
 
 # Dropdown for selecting plot type
 plot_type = st.selectbox('Select Plot Type:', ['Line', 'Bar', 'Histogram', 'Scatter', 'Area', 'Box', 'Violin'])
@@ -25,7 +27,7 @@ if selected_state == 'None':
     filtered_df = df
 else:
     filtered_df = df[df['Area_Name'].str.strip().str.lower() == selected_state.lower().strip()]
-    
+
 # Plot the selected graph
 if plot_type == 'Line':
     fig = px.line(filtered_df, x=x_column, y=y_column, title=f'Line Plot: {y_column} over {x_column} - {selected_state}')
@@ -44,4 +46,5 @@ elif plot_type == 'Violin':
 
 # Show the plot
 st.plotly_chart(fig)
+
 
