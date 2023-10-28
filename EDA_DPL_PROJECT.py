@@ -8,10 +8,10 @@ df = pd.read_csv("EDA_DPL_DATASET.csv")
 st.title('Data Visualization App For Crimes committed Against Women')
 
 # Dropdown for selecting x-axis column
-x_column = st.selectbox('Select X-axis Column:', ['None'] + list(df.columns))
+x_column = st.selectbox('Select X-axis Column:', ['None'] + (df.columns))
 
 # Dropdown for selecting y-axis column
-y_column = st.selectbox('Select Y-axis Column:', ['None'] + list(df.columns))
+y_column = st.selectbox('Select Y-axis Column:', ['None'] + (df.columns))
 
 # Dropdown for selecting plot type
 plot_type = st.selectbox('Select Plot Type:', ['Line', 'Bar', 'Histogram', 'Scatter', 'Area', 'Box', 'Violin'])
