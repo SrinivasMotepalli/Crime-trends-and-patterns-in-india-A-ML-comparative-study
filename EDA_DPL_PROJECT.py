@@ -17,15 +17,15 @@ y_column = st.selectbox('Select Y-axis Column:', df.columns)
 plot_type = st.selectbox('Select Plot Type:', ['Line', 'Bar', 'Histogram', 'Scatter', 'Area', 'Box', 'Violin'])
 
 # Dropdown for selecting state
-states = ['None'] + list(df['Area_Name'].unique())
+states = ['None'] + sorted(df['Area_Name'].str.strip().unique(), key=str.lower)
 selected_state = st.selectbox('Select State:', states)
 
 # Filter data for state-wise analysis
 if selected_state == 'None':
     filtered_df = df
 else:
-    filtered_df = df[df['Area_Name'] == selected_state]
-
+    filtered_df = df[df['Area_Name'].str.strip().str.lower() == selected_state.lower().strip()]
+    
 # Plot the selected graph
 if plot_type == 'Line':
     fig = px.line(filtered_df, x=x_column, y=y_column, title=f'Line Plot: {y_column} over {x_column} - {selected_state}')
