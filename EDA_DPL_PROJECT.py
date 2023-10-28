@@ -7,19 +7,12 @@ df = pd.read_csv("EDA_DPL_DATASET.csv")
 # Streamlit App
 st.title('Data Visualization App For Crimes committed Against Women')
 
-x_states = ['None'] + sorted(df.str.strip().unique(), key=str.lower)
-x_selected_state = st.selectbox('Select State:', x_states)
+# Dropdown for selecting x-axis column
+x_column = st.selectbox('Select X-axis Column:', df.columns)
 
-# Filter data for state-wise analysis
-if x_selected_state == 'None':
-    x_filtered_df = df
+# Dropdown for selecting y-axis column
+y_column = st.selectbox('Select Y-axis Column:', df.columns)
 
-y_states = ['None'] + sorted(df.str.strip().unique(), key=str.lower)
-y_selected_state = st.selectbox('Select State:', y_states)
-
-# Filter data for state-wise analysis
-if y_selected_state == 'None':
-    y_filtered_df = df
 # Dropdown for selecting plot type
 plot_type = st.selectbox('Select Plot Type:', ['Line', 'Bar', 'Histogram', 'Scatter', 'Area', 'Box', 'Violin'])
 
