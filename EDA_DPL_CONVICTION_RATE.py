@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load data
-df = pd.read_csv("EDA_DPL_DATASET.csv")
+df = pd.read_csv("EDA_DPL_AFTER_ROBUST_SCALLING.csv")
 
 # Streamlit App
 st.title('Conviction Rates for Crimes Against Women')
