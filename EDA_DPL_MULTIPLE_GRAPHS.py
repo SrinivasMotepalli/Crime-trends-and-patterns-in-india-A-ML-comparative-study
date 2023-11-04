@@ -30,7 +30,7 @@ if selected_state == 'None':
 else:
     filtered_df = df[df['Area_Name'].str.strip().str.lower() == selected_state.lower().strip()]
 
-# Filter data for the selected year
+# MODIFICATION: We have added a catogorical column to our streamlit app this helps the user get the data as year wise where the user can select which year they need to display. 
 if selected_year != 'None':
     filtered_df = filtered_df[filtered_df['Year'] == selected_year]
 
